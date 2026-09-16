@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-brand">🎓 Student Management System</div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Dashboard Cards -->
+    <section class="dashboard">
+      <div class="card">
+        <h3 id="totalStudents">0</h3>
+        <p>Total Students</p>
+      </div>
+      <div class="card">
+        <h3 id="totalDepartments">0</h3>
+        <p>Departments</p>
+      </div>
+    </section>
+
+    <!-- Message box for success / error messages -->
+    <div id="messageBox" class="message-box hidden"></div>
+
+    <!-- Add / Edit Student Form -->
+    <section class="form-section">
+      <h2 id="formTitle">Add New Student</h2>
+      <form id="studentForm">
+        <input type="hidden" id="studentId">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="e.g. John Smith" required>
+            <span class="error-text" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="registerNumber">Register Number</label>
+            <input type="text" id="registerNumber" placeholder="e.g. REG2024001" required>
+            <span class="error-text" id="registerNumberError"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" id="department" placeholder="e.g. Computer Science" required>
+            <span class="error-text" id="departmentError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="e.g. john@example.com" required>
+            <span class="error-text" id="emailError"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" id="phoneNumber" placeholder="e.g. 9876543210" required>
+            <span class="error-text" id="phoneNumberError"></span>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Add Student</button>
+          <button type="button" class="btn btn-secondary hidden" id="cancelEditBtn">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Student List -->
+    <section class="list-section">
+      <div class="list-header">
+        <h2>Student List</h2>
+        <input type="text" id="searchInput" placeholder="🔍 Search by name or register number...">
+      </div>
+
+      <div class="table-wrapper">
+        <table id="studentTable">
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Name</th>
+              <th>Register Number</th>
+              <th>Department</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Rows injected by script.js -->
+          </tbody>
+        </table>
+        <p id="emptyState" class="empty-state hidden">No students found.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Confirm Delete</h3>
+      <p id="deleteModalText">Are you sure you want to delete this student?</p>
+      <div class="modal-actions">
+        <button class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+        <button class="btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
